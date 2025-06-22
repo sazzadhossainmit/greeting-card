@@ -1,0 +1,373 @@
+:root {
+      --glass-bg: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --background: linear-gradient(135deg, #3A0519, #000B58);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: var(--background);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow-x: hidden;
+      padding: 20px;
+    }
+
+    html,body {
+      overflow: hidden; 
+    } 
+
+    .glitter {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: radial-gradient(circle, white 0%, #c084fc 100%);
+        border-radius: 50%;
+        pointer-events: none;
+        opacity: 0.8;
+        box-shadow: 0 0 8px #f0abfc, 0 0 12px #fff;
+        animation: glitter-fade 0.9s ease-out forwards;
+        z-index: 9999;
+        }
+
+        @keyframes glitter-fade {
+        0% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(20px) scale(0.3);
+        }
+    }
+
+    .particle {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background: #c084fc;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.8;
+        }
+
+
+    .card {
+      position: relative;
+      backdrop-filter: blur(14px);
+      background: var(--glass-bg);
+      border-radius: 20px;
+      padding: 40px 20px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.5);
+      border: 1px solid var(--glass-border);
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .blob-container {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 20px auto;
+    }
+
+    .blob {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(45deg, #a759fa, #670D2F);
+      border-radius: 50%;
+      animation: blobMove 3s infinite ease-in-out;
+      z-index: 0;
+      filter: blur(30px);
+    }
+
+    .profile-pic {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #4f258f9a;
+      z-index: 1;
+    }
+
+    .fade-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #4f258f9a;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      z-index: 1;
+    }
+
+    .fade-image.active {
+      opacity: 1;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: white;
+      text-shadow: 2px 2px 8px #00000066;
+      animation: popIn 1s ease-out;
+    }
+
+    .message {
+      font-size: 1.2em;
+      color: #f3e8ff;
+      margin-top: 15px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .social-icons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      backdrop-filter: blur(8px);
+      background: linear-gradient(135deg, #000B58, #3A0519);
+      border: 2px solid #a12ab6;
+      box-shadow: 0 0 8px 2px rgba(165, 56, 96, 0.8);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 8px 4px #A53860;
+    }
+
+    .social-icons img {
+      width: 22px;
+      height: 22px;
+    }
+
+    .thank-you-btn {
+      margin-top: 25px;
+      background: linear-gradient(135deg, #000B58, #3A0519);
+      border: 2px solid #a12ab6;
+      padding: 12px 20px;
+      font-size: 1.1em;
+      font-family: 'Quicksand', sans-serif;
+      border-radius: 30px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 15px #c084fc;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .thank-you-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #A53860;
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: gold;
+      animation: fall 8s infinite ease-in;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-100vh) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    @keyframes blobMove {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(-10px, 15px) scale(1.05); }
+      66% { transform: translate(10px, -10px) scale(0.95); }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5em;
+      }
+      .message {
+        font-size: 1em;
+      }
+      .thank-you-btn {
+        font-size: 1em;
+        padding: 10px 16px;
+      }
+    }
+    .news-ticker {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+      font-family: 'Quicksand', sans-serif;
+      color: #f3e8ff;
+      font-weight: 400;
+      user-select: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .ticker-content {
+      display: inline-block;
+      padding-left: 100%;
+      animation: tickerScroll 30s linear infinite;
+    }
+
+    @keyframes tickerScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    body {
+      padding-top: 20px; /* adjust if needed based on ticker height */
+    }
+
+    @keyframes gentle-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes soft-glow {
+      0%, 100% {
+        box-shadow: 0 0 10px #c084fc;
+      }
+      50% {
+        box-shadow: 0 0 20px #A53860;
+      }
+    }
+
+    .bounce-glow {
+      animation: gentle-bounce 1.4s ease-in-out infinite, soft-glow 2s ease-in-out infinite;
+    }
+
+    .share-icon-buttons {
+      margin: 25px 0 10px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .share-icon-buttons button {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 2px solid #a12ab6;
+      background: linear-gradient(135deg, #000B58, #3A0519);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 0 8px rgba(165, 56, 96, 0.8);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .share-icon-buttons button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 12px #c084fc;
+    }
+
+    .share-icon-buttons img {
+      width: 22px;
+      height: 22px;
+      pointer-events: none;
+    }
+
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: var(--background);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox-overlay.show {
+      display: flex;
+    }
+
+    .lightbox-img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.5);
+      border: 1px solid var(--glass-border);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 48px;
+      color: #a12ab6;
+      cursor: pointer;
+    }
+
+    .lightbox-arrow {
+      position: absolute;
+      top: 50%;
+      font-size: 36px;
+      color: #a12ab6;
+      cursor: pointer;
+      user-select: none;
+      transform: translateY(-50%);
+      padding: 0 20px;
+    }
+
+    .lightbox-arrow.left {
+      left: 10px;
+    }
+
+    .lightbox-arrow.right {
+      right: 10px;
+    }
+
+

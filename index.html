@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎉 Happy Birthday!</title>
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="news-ticker">
+    <div class="ticker-content" id="tickerContent">
+      ✨ You are MAGICAL - Believe in youself 💖 Sending you love, joy, and endless smiles! 🤝 Ready to mix fun with productivity? Let’s connect and make it real! 🎯
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="blob-container" id="profileContainer">
+      <div class="blob"></div>
+      <img class="profile-pic fade-image active" id="profilePic1" src="images/sazzad1.jpg" alt="Person's Photo" />
+      <img class="profile-pic fade-image" id="profilePic2" src="images/sazzad.jpg" alt="Person's Photo" />
+    </div>
+    <h1 id="greeting">🎂 Happy Birthday! 🎂</h1>
+    <div class="message" id="message">Wishing you a day filled with love, joy, and endless smiles 💖</div>
+    <div class="social-icons">
+      <a href="https://wa.me/+8801308001168" target="_blank"><img src="images/whatsapp.png" alt="WhatsApp"></a>
+      <a href="https://m.me/sazzadhossainmit" target="_blank"><img src="images/messenger.png" alt="Messenger"></a>
+      <a href="https://www.instagram.com/sazzadhossainmit" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+      <a href="https://github.com/sazzadhossainmit"><img src="images/github.png" alt="GitHub"></a>
+    </div>
+
+    <audio id="bg-music" autoplay >
+      <source src="music/bgm.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <a href="https://m.me/sazzadhossainmit" target="_blank"><button class="thank-you-btn">Thank You 💫</button></a>
+    <button id="toggleMusic" class="thank-you-btn" style="margin-top: 15px; margin-left: 10px;">
+      🔊
+    </button>
+  </div>
+
+  <div class="share-icon-buttons">
+    <button onclick="copyLink()" title="Copy Link">
+      <img src="images/link.png" alt="Copy Link">
+    </button>
+    <button onclick="shareNow()" title="Share">
+      <img src="images/share.png" alt="Share">
+    </button>
+  </div>
+
+  <div id="lightboxOverlay" class="lightbox-overlay">
+    <span class="lightbox-close" onclick="closeLightbox()">×</span>
+    <img id="lightboxImg" class="lightbox-img" src="" alt="Full Size">
+    <span class="lightbox-arrow left" onclick="prevImage()">&#10094;</span>
+    <span class="lightbox-arrow right" onclick="nextImage()">&#10095;</span>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
